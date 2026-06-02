@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Order Processing Grant — Win $1,000 Daily | Sellvia</title>
+<title>Order Processing Grant – Win $1,000 Daily | Sellvia</title>
 <meta name="description" content="Launch your free Sellvia store. Process your orders and enter every daily $1,000 draw. Seven days in a row unlocks the $5,000 Weekly Jackpot.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts/sf-pro-display.css">
@@ -80,6 +80,13 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.4);background:rgba(17,17,20,.95)}
 .nav-cta{display:inline-flex;align-items:center;gap:8px;border-radius:980px;text-decoration:none;padding:0 22px;height:38px;font-size:14px;font-weight:600;color:#000;border:none;background:#f5a623;box-shadow:none;transition:all .2s cubic-bezier(.22,1,.36,1)}
 .nav-cta svg{transition:transform .4s cubic-bezier(.22,1,.36,1)}
 @media(hover:hover){.nav-cta:hover{background:#d4891a}.nav-cta:hover svg{transform:translateX(4px)}}
+.hero-ctas .btn-wrap{position:relative;display:inline-flex}
+.jackpot-sticker{position:absolute;right:calc(100% + 20px);top:50%;transform:translateY(-50%);width:134px;height:134px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:linear-gradient(160deg,rgba(11,107,192,.52),rgba(6,74,140,.64));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);text-align:center;clip-path:polygon(50.00% 0.00%, 57.47% 7.65%, 67.10% 3.02%, 71.50% 12.76%, 82.14% 11.70%, 82.94% 22.36%, 93.30% 25.00%, 90.41% 35.29%, 99.24% 41.32%, 93.00% 50.00%, 99.24% 58.68%, 90.41% 64.71%, 93.30% 75.00%, 82.94% 77.64%, 82.14% 88.30%, 71.50% 87.24%, 67.10% 96.98%, 57.47% 92.35%, 50.00% 100.00%, 42.53% 92.35%, 32.90% 96.98%, 28.50% 87.24%, 17.86% 88.30%, 17.06% 77.64%, 6.70% 75.00%, 9.59% 64.71%, 0.76% 58.68%, 7.00% 50.00%, 0.76% 41.32%, 9.59% 35.29%, 6.70% 25.00%, 17.06% 22.36%, 17.86% 11.70%, 28.50% 12.76%, 32.90% 3.02%, 42.53% 7.65%);-webkit-mask-image:linear-gradient(45deg,#000 46%,transparent 54%);mask-image:linear-gradient(45deg,#000 46%,transparent 54%);-webkit-mask-size:300% 300%;mask-size:300% 300%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;animation:njpReveal 8.4s linear infinite}
+.jackpot-sticker strong{font-size:25px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.02em}
+.jackpot-sticker .njp-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.85);margin-top:4px;white-space:nowrap}
+.jackpot-sticker::after{content:'';position:absolute;inset:-25%;background:linear-gradient(45deg,transparent 41%,rgba(201,228,255,.85) 50%,transparent 59%);pointer-events:none;animation:njpShine 8.4s linear infinite}
+@keyframes njpReveal{0%{-webkit-mask-position:100% 0%;mask-position:100% 0%;opacity:1}45.2%{-webkit-mask-position:0% 100%;mask-position:0% 100%;opacity:1}69%{-webkit-mask-position:0% 100%;mask-position:0% 100%;opacity:1}77.4%{-webkit-mask-position:0% 100%;mask-position:0% 100%;opacity:0}100%{-webkit-mask-position:100% 0%;mask-position:100% 0%;opacity:0}}
+@keyframes njpShine{0%{transform:translate(-90%,90%);opacity:0}5%{opacity:1}45.2%{transform:translate(90%,-90%);opacity:1}52%{opacity:0}100%{transform:translate(90%,-90%);opacity:0}}
 
 /* === HERO === */
 .hero{padding:160px 0 100px;background:#000;position:relative;overflow:hidden;min-height:80svh;display:flex;align-items:center}
@@ -214,6 +221,8 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.08)}
   .hero-ctas .btn{width:100%}
   h1{font-size:clamp(30px,7vw,42px)}
   .hero-ctas{flex-direction:column;align-items:center}
+  .hero-ctas .btn-wrap{display:flex;flex-direction:column;align-items:center}
+  .jackpot-sticker{position:static;transform:none;right:auto;top:auto;margin:0 0 16px}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
   .sp-grid{grid-template-columns:1fr}
   .reviews-grid{grid-template-columns:1fr 1fr}
@@ -269,7 +278,7 @@ body.bar-hidden #navbar{top:0 !important}
 .winners-copy{flex:0 1 460px;max-width:460px}
 .winners-copy .overline{color:#f5a623}
 .winners-copy h2{color:#fff}
-.winners-copy h2 em{color:#f5a623;font-style:italic}
+.winners-copy h2 em{color:#f5a623;font-style:normal}
 .winners-copy p{color:rgba(255,255,255,.62);font-size:16px;line-height:1.6;margin:0}
 /* RIGHT — CTA button (mirrors hero) */
 .winners-copy .btn{margin-top:30px}
@@ -289,7 +298,9 @@ body.bar-hidden #navbar{top:0 !important}
 /* Card: full-bleed photo + frosted bottom overlay */
 .wsp-card{position:relative;width:360px;height:540px;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);background:#1d1d1f}
 .wsp-photo{position:absolute;inset:0;z-index:1}
-.wsp-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.wsp-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transform:translateY(-13%)}
+.wsp-photo img[src*="avatar-5745"]{transform:translateY(calc(-13% - 10px))} /* Linda — raised +10px */
+.wsp-photo img[src*="avatar-5740"]{transform:translateY(-13%) scale(1.15)} /* Liam — 15% larger */
 .wsp-bottom{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.72);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);padding:18px 22px 20px;z-index:2}
 
 /* Winner pill (amber) */
@@ -593,11 +604,11 @@ body.bar-hidden #navbar{top:0 !important}
   <div class="hero-overlay"></div>
   <div class="container">
       <div class="hero-text">
-        <div class="hero-badge"><span class="badge-dot"></span> &#10022; New &mdash; Order Processing Grant</div>
+        <div class="hero-badge"><span class="badge-dot"></span> New &ndash; Order Processing Grant</div>
         <h1>Launch your free store. Process your orders. <em>Win $1,000.</em> Every single day.</h1>
-        <p class="hero-sub">The Order Processing Grant rewards you for doing the one thing that grows your business — fulfilling orders. Process all your orders today and you're in tomorrow's $1,000 draw.</p>
+        <p class="hero-sub">The Order Processing Grant rewards you for doing the one thing that grows your business – fulfilling orders. Process all your orders today and you're in tomorrow's $1,000 draw.</p>
         <div class="hero-ctas">
-          <span class="btn-wrap"><a href="https://sellvia.com/checkout/?product=custom&type_custom=free_basic_hosting" class="btn">Get My Free Store — Start Winning <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></a></span>
+          <span class="btn-wrap"><span class="jackpot-sticker"><strong>+$5,000</strong><span class="njp-label">Weekly Jackpot</span></span><a href="https://sellvia.com/checkout/?product=custom&type_custom=free_basic_hosting" class="btn">Get My Free Store – Start Winning <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></a></span>
         </div>
         <p class="hero-fine"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Free 14-day trial &middot; $1,000 daily draws &middot; Cancel anytime</p>
       </div>
@@ -625,22 +636,22 @@ body.bar-hidden #navbar{top:0 !important}
           <div class="streak-day streak-pending">
             <div class="streak-dot">4</div>
             <div class="streak-label-day">Thu</div>
-            <div class="streak-amount">&mdash;</div>
+            <div class="streak-amount">&ndash;</div>
           </div>
           <div class="streak-day streak-pending">
             <div class="streak-dot">5</div>
             <div class="streak-label-day">Fri</div>
-            <div class="streak-amount">&mdash;</div>
+            <div class="streak-amount">&ndash;</div>
           </div>
           <div class="streak-day streak-pending">
             <div class="streak-dot">6</div>
             <div class="streak-label-day">Sat</div>
-            <div class="streak-amount">&mdash;</div>
+            <div class="streak-amount">&ndash;</div>
           </div>
           <div class="streak-day streak-pending">
             <div class="streak-dot">7</div>
             <div class="streak-label-day">Sun</div>
-            <div class="streak-amount">&mdash;</div>
+            <div class="streak-amount">&ndash;</div>
           </div>
         </div>
         <div class="streak-jackpot">
@@ -680,19 +691,19 @@ body.bar-hidden #navbar{top:0 !important}
         
         <div class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg></div>
         <h4>No caps</h4>
-        <p>Win every day you qualify &mdash; no lifetime limit.</p>
+        <p>Win every day you qualify &ndash; no lifetime limit.</p>
       </div>
       <div class="b-card">
         
         <div class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg></div>
         <h4>Starts during trial</h4>
-        <p>First draw entry on day one &mdash; no waiting for month two.</p>
+        <p>First draw entry on day one &ndash; no waiting for month two.</p>
       </div>
       <div class="b-card">
         
         <div class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></div>
         <h4>Store credit that compounds</h4>
-        <p>Reinvest in your business &mdash; unlock more products, premium plans, or ad credits.</p>
+        <p>Reinvest in your business &ndash; unlock more products, premium plans, or ad credits.</p>
       </div>
       <div class="b-card">
         
@@ -782,8 +793,8 @@ body.bar-hidden #navbar{top:0 !important}
       <div class="winners-copy">
         <div class="overline">Recent payouts</div>
         <h2>Real sellers. <em>Real payouts.</em></h2>
-        <p>Live feed of store owners who processed their orders and got paid &mdash; daily draws and weekly Jackpots.</p>
-        <span class="btn-wrap"><a href="https://sellvia.com/checkout/?product=custom&type_custom=free_basic_hosting" class="btn">Get My Free Store — Start Winning <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></a></span>
+        <p>Live feed of store owners who processed their orders and got paid &ndash; daily draws and weekly Jackpots.</p>
+        <span class="btn-wrap"><a href="https://sellvia.com/checkout/?product=custom&type_custom=free_basic_hosting" class="btn">Get My Free Store – Start Winning <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></a></span>
       </div>
 
     </div>
@@ -847,12 +858,12 @@ body.bar-hidden #navbar{top:0 !important}
       <div class="how-step">
         <div class="how-num">1</div>
         <h3>Fulfill today&rsquo;s orders &rarr; enter the $1,000 draw</h3>
-        <p>Open your dashboard and process every pending order. Takes a few minutes. Customers get their products, you earn profit &mdash; and you&rsquo;re entered into today&rsquo;s $1,000 draw.</p>
+        <p>Open your dashboard and process every pending order. Takes a few minutes. Customers get their products, you earn profit &ndash; and you&rsquo;re entered into today&rsquo;s $1,000 draw.</p>
       </div>
       <div class="how-step">
         <div class="how-num">2</div>
         <h3>Check your result in the morning</h3>
-        <p>Every day at 8 AM, your grant envelope arrives. Open it and see if you won $1,000. Even if you didn&rsquo;t &mdash; you&rsquo;re one day closer to the Jackpot.</p>
+        <p>Every day at 8 AM, your grant envelope arrives. Open it and see if you won $1,000. Even if you didn&rsquo;t &ndash; you&rsquo;re one day closer to the Jackpot.</p>
       </div>
       <div class="how-step">
         <div class="how-num">3</div>
@@ -869,7 +880,7 @@ body.bar-hidden #navbar{top:0 !important}
       <div class="overline">Why it works</div>
       <h2>Every day is a <em>new chance.</em></h2>
     </div>
-    <p class="psych-body">Here&rsquo;s what makes this different from lottery tickets: <strong>you&rsquo;re not gambling &mdash; you&rsquo;re getting paid to grow your business.</strong> Every order you process earns you real profit AND enters you into a <strong>$1,000 draw.</strong> Miss a day? No penalty &mdash; just start a new streak on Monday. But if you show up seven days in a row, that <strong>$5,000 Jackpot</strong> could be yours.</p>
+    <p class="psych-body">Here&rsquo;s what makes this different from lottery tickets: <strong>you&rsquo;re not gambling &ndash; you&rsquo;re getting paid to grow your business.</strong> Every order you process earns you real profit AND enters you into a <strong>$1,000 draw.</strong> Miss a day? No penalty &ndash; just start a new streak on Monday. But if you show up seven days in a row, that <strong>$5,000 Jackpot</strong> could be yours.</p>
   </div>
 </section>
 
@@ -905,7 +916,7 @@ body.bar-hidden #navbar{top:0 !important}
               <div class="ft-card-body">
                 <span class="ft-win-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Won 3x <span class="ft-win-badge-amount">$3,000</span></span>
                 <div class="ft-card-bottom">
-                  <p class="ft-quote">Three wins in two weeks, $3,000 back into my store. Unlocked more AI toolkits with it &mdash; now they&rsquo;re bringing in profit on top. First platform that actually grows my margin.</p>
+                  <p class="ft-quote">Three wins in two weeks, $3,000 back into my store. Unlocked more AI toolkits with it &ndash; now they&rsquo;re bringing in profit on top. First platform that actually grows my margin.</p>
                   <div class="ft-author">
                     <div class="ft-name">Denise M.</div>
                     <div class="ft-meta">Illinois &#127482;&#127480; &middot; Won 3 daily draws</div>
@@ -970,7 +981,7 @@ body.bar-hidden #navbar{top:0 !important}
       </div>
     <h2>Tonight&rsquo;s $1,000 draw starts at midnight</h2>
     <p class="body-text center" style="max-width:640px;margin:0 auto 32px">Launch your free store today, process today&rsquo;s orders, and you&rsquo;re in tomorrow&rsquo;s draw. Seven days of consistency stacks a $5,000 Jackpot on top.</p>
-    <a href="https://sellvia.com/checkout/?product=custom&type_custom=free_basic_hosting" class="btn btn-white">Get My Free Store — Start Winning <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></a>
+    <a href="https://sellvia.com/checkout/?product=custom&type_custom=free_basic_hosting" class="btn btn-white">Get My Free Store – Start Winning <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></a>
     <p class="fine-print" style="color:rgba(255,255,255,.5);margin-top:14px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Free 14-day trial &middot; $1,000 daily draws &middot; Cancel anytime</p>
   </div>
 </section>
@@ -984,10 +995,10 @@ body.bar-hidden #navbar{top:0 !important}
       <p class="faq-sub">Everything you need to know about the Order Processing Grant.</p>
     </div>
     <div class="faq-wrap">
-      <div class="faq-item"><div class="faq-q">Is the grant real money?<span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div><div class="faq-a">Yes. Winners get $1,000 (daily draw) and/or $5,000 (weekly jackpot) deposited straight into their store account as credit.</div></div>
+      <div class="faq-item"><div class="faq-q">Is the grant real money?<span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div><div class="faq-a">Yes. Winners get $1,000 (daily draw) and/or $5,000 (weekly jackpot) deposited straight into their store account.</div></div>
       <div class="faq-item"><div class="faq-q">How do I qualify for the daily draw?<span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div><div class="faq-a">Process every pending order in your Sellvia dashboard before midnight. One qualifying day = one draw entry. That&rsquo;s it. No applications, no paperwork.</div></div>
-      <div class="faq-item"><div class="faq-q">How does the $5,000 Weekly Jackpot work?<span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div><div class="faq-a">Process orders every day from Monday to Sunday. Seven consecutive qualifying days automatically enter you into Monday&rsquo;s $5,000 Jackpot draw &mdash; on top of your seven daily $1,000 entries.</div></div>
-      <div class="faq-item"><div class="faq-q">Do grants start during the free trial?<span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div><div class="faq-a">Yes. Draws begin the day your store goes live &mdash; including your 14-day free trial. Your first payout could land tomorrow morning.</div></div>
+      <div class="faq-item"><div class="faq-q">How does the $5,000 Weekly Jackpot work?<span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div><div class="faq-a">Process orders every day from Monday to Sunday. Seven consecutive qualifying days automatically enter you into Monday&rsquo;s $5,000 Jackpot draw &ndash; on top of your seven daily $1,000 entries.</div></div>
+      <div class="faq-item"><div class="faq-q">Do grants start during the free trial?<span class="faq-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div><div class="faq-a">Yes. Draws begin the day your store goes live &ndash; including your 14-day free trial. Your first payout could land tomorrow morning.</div></div>
     </div>
   </div>
 </section>
@@ -1131,7 +1142,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
-
 
 </script>
 <script>
