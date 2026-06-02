@@ -269,17 +269,17 @@ body.bar-hidden #navbar{top:0 !important}
 .winners-copy{flex:0 1 460px;max-width:460px}
 .winners-copy .overline{color:#f5a623}
 .winners-copy h2{color:#fff}
-.winners-copy h2 em{color:#f5a623;font-style:normal}
+.winners-copy h2 em{color:#f5a623;font-style:italic}
 .winners-copy p{color:rgba(255,255,255,.62);font-size:16px;line-height:1.6;margin:0}
-.winners-legend{display:flex;flex-direction:column;gap:12px;margin-top:30px}
-.wleg-item{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.7)}
-.wleg-item strong{color:#fff;font-weight:700}
-.wleg-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
-.wleg-dot-daily{background:rgba(245,166,35,.45);border:1px solid rgba(245,166,35,.8)}
-.wleg-dot-jackpot{background:#f5a623;box-shadow:0 0 10px rgba(245,166,35,.7)}
+/* RIGHT — CTA button (mirrors hero) */
+.winners-copy .btn{margin-top:30px}
+.winners-copy .btn::before{content:'';position:absolute;inset:-2px;border-radius:999px;background:linear-gradient(90deg,var(--teal),var(--teal-bright),#ffb84d,var(--teal));background-size:300% 100%;z-index:-1;animation:btnGlow 4s linear infinite;opacity:0;transition:opacity .3s}
+.winners-copy .btn:hover::before{opacity:1}
+.winners-copy .btn::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:skewX(-20deg)}
+.winners-copy .btn:hover::after{animation:btnShine .6s ease forwards}
 
 /* LEFT — 3D fade carousel */
-.winners-stage{flex:0 0 540px;display:flex;flex-direction:column;align-items:center}
+.winners-stage{flex:0 0 540px;display:flex;flex-direction:column;align-items:center;transform:translateX(-44px)}
 .wsp-slider{position:relative;width:100%;max-width:540px;height:540px;margin:0 auto;perspective:1200px}
 .wsp-slide{position:absolute;top:50%;left:50%;width:360px;height:540px;margin:-270px 0 0 -180px;opacity:0;pointer-events:none;z-index:1;transform:scale(.7);transition:transform .6s cubic-bezier(.4,0,.2,1),opacity .48s ease;will-change:transform,opacity}
 .wsp-slide.wsp-active{opacity:1;pointer-events:auto;transform:translateX(0) scale(1);z-index:3}
@@ -293,22 +293,22 @@ body.bar-hidden #navbar{top:0 !important}
 .wsp-bottom{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.72);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);padding:18px 22px 20px;z-index:2}
 
 /* Winner pill (amber) */
-.wsp-pill{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#f7b733,#f5a623 55%,#d4891a);color:#3a2400;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;border-radius:980px;box-shadow:0 8px 22px rgba(245,166,35,.4),0 1px 0 rgba(255,255,255,.45) inset;position:relative;overflow:hidden;margin:0 0 12px;white-space:nowrap}
+.wsp-pill{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#f7b733,#f5a623 55%,#d4891a);color:#3a2400;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border-radius:980px;box-shadow:0 8px 22px rgba(245,166,35,.4),0 1px 0 rgba(255,255,255,.45) inset;position:relative;overflow:hidden;margin:0 0 12px;line-height:1;white-space:nowrap}
 .wsp-pill svg{width:12px;height:12px;flex-shrink:0;filter:drop-shadow(0 1px 1px rgba(0,0,0,.18))}
 .wsp-pill::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55) 50%,transparent);transform:translateX(-100%);animation:wspPillShine 3.2s linear infinite;pointer-events:none}
 @keyframes wspPillShine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 .wsp-slide.wsp-jackpot .wsp-pill{background:linear-gradient(135deg,#ffd166,#f5a623 50%,#c97a12);box-shadow:0 8px 26px rgba(245,166,35,.6),0 1px 0 rgba(255,255,255,.55) inset}
 
 /* Amount + meta */
-.wsp-amount-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.wsp-amount-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .wsp-amount{font-family:var(--font);font-size:30px;font-weight:700;color:#b9791a;line-height:1;letter-spacing:-.02em}
 .wsp-slide.wsp-jackpot .wsp-amount{color:#a85f0c}
-.wsp-status{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#1f9d4d;white-space:nowrap}
+.wsp-status{display:inline-flex;align-items:center;gap:5px;background:rgba(0,0,0,.06);color:#1f9d4d;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:980px;line-height:1;white-space:nowrap}
 .wsp-subline{font-size:12.5px;color:rgba(0,0,0,.55);font-weight:500;margin-top:6px}
 .wsp-divider{height:1px;background:rgba(0,0,0,.12);margin:13px 0}
 .wsp-name{font-size:15px;font-weight:700;color:#1d1d1f;letter-spacing:-.01em}
 .wsp-meta{font-size:12.5px;color:rgba(0,0,0,.5);margin-top:4px}
-.wsp-meta .wsp-flag{font-size:1.25em;vertical-align:-2px;margin-left:2px}
+.wsp-meta .wsp-flag{font-size:11px;font-weight:600;color:rgba(0,0,0,.4);letter-spacing:.04em;text-transform:uppercase;margin-left:5px}
 
 /* Dots */
 .wsp-dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
@@ -318,7 +318,7 @@ body.bar-hidden #navbar{top:0 !important}
 @media(max-width:980px){
   .winners-grid{flex-direction:column;gap:46px}
   .winners-copy{order:-1;flex:0 1 auto;max-width:560px;text-align:center}
-  .winners-legend{align-items:center}
+  .winners-stage{transform:none}
   .winners-stage{flex:0 0 auto;width:100%}
 }
 @media(max-width:760px){
@@ -722,7 +722,7 @@ body.bar-hidden #navbar{top:0 !important}
                 <div class="wsp-subline">Day 2 of streak &middot; Paid 8:02 AM</div>
                 <div class="wsp-divider"></div>
                 <div class="wsp-name">Diego M.</div>
-                <div class="wsp-meta">Arizona <span class="wsp-flag">&#127482;&#127480;</span></div>
+                <div class="wsp-meta">Arizona <span class="wsp-flag">US</span></div>
               </div>
             </div>
           </div>
@@ -736,7 +736,7 @@ body.bar-hidden #navbar{top:0 !important}
                 <div class="wsp-subline">Monday bonus &middot; Paid 9:14 AM</div>
                 <div class="wsp-divider"></div>
                 <div class="wsp-name">Jasmine B.</div>
-                <div class="wsp-meta">Georgia <span class="wsp-flag">&#127482;&#127480;</span></div>
+                <div class="wsp-meta">Georgia <span class="wsp-flag">US</span></div>
               </div>
             </div>
           </div>
@@ -750,7 +750,7 @@ body.bar-hidden #navbar{top:0 !important}
                 <div class="wsp-subline">Day 4 of streak &middot; Paid 8:11 AM</div>
                 <div class="wsp-divider"></div>
                 <div class="wsp-name">Liam P.</div>
-                <div class="wsp-meta">Ohio <span class="wsp-flag">&#127482;&#127480;</span></div>
+                <div class="wsp-meta">Ohio <span class="wsp-flag">US</span></div>
               </div>
             </div>
           </div>
@@ -764,7 +764,7 @@ body.bar-hidden #navbar{top:0 !important}
                 <div class="wsp-subline">Monday bonus &middot; Paid 9:22 AM</div>
                 <div class="wsp-divider"></div>
                 <div class="wsp-name">Linda W.</div>
-                <div class="wsp-meta">Berlin <span class="wsp-flag">&#127465;&#127466;</span></div>
+                <div class="wsp-meta">Berlin <span class="wsp-flag">DE</span></div>
               </div>
             </div>
           </div>
@@ -783,10 +783,7 @@ body.bar-hidden #navbar{top:0 !important}
         <div class="overline">Recent payouts</div>
         <h2>Real sellers. <em>Real payouts.</em></h2>
         <p>Live feed of store owners who processed their orders and got paid &mdash; daily draws and weekly Jackpots.</p>
-        <div class="winners-legend">
-          <div class="wleg-item"><span class="wleg-dot wleg-dot-daily"></span><span class="wleg-text"><strong>Daily Grant</strong> &middot; $1,000 per winner</span></div>
-          <div class="wleg-item"><span class="wleg-dot wleg-dot-jackpot"></span><span class="wleg-text"><strong>7-Day Jackpot</strong> &middot; $5,000 weekly bonus</span></div>
-        </div>
+        <span class="btn-wrap"><a href="https://sellvia.com/checkout/?product=custom&type_custom=free_basic_hosting" class="btn">Get My Free Store — Start Winning <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></a></span>
       </div>
 
     </div>
