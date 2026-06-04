@@ -33,7 +33,7 @@
 
 /* === RESET === */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-font-smoothing:antialiased}
 body{font-family:var(--font);color:var(--text);background:var(--white);line-height:1.6;overflow-x:clip;padding-top:44px;transition:padding-top .35s cubic-bezier(.22,1,.36,1)}
 html{background:var(--dark)}
 body.bar-hidden{padding-top:0}
@@ -70,16 +70,20 @@ h4{font-family:var(--font);font-size:16px;font-weight:700;margin-bottom:6px}
 .link-arrow{font-size:16px;font-weight:600;color:rgba(255,255,255,.7);transition:color .2s}
 .link-arrow:hover{color:var(--white)}
 
-/* === NAV === */
+/* === NAV (Linear-style: logo · centered links · our CTA) === */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(17,17,20,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);transition:box-shadow .3s,background .3s}
 nav::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,rgba(255,255,255,.1) 25%,rgba(255,255,255,.2) 50%,rgba(255,255,255,.1) 75%,transparent 95%);pointer-events:none}
 nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.4);background:rgba(17,17,20,.95)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px;height:72px}
-.nav-logo{font-family:var(--font);font-weight:700;font-size:26px;color:#fff;text-decoration:none;letter-spacing:-.02em}
-.nav-logo span{color:var(--teal-bright)}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;border-radius:980px;text-decoration:none;padding:0 22px;height:38px;font-size:14px;font-weight:600;color:#000;border:none;background:#f5a623;box-shadow:none;transition:all .2s cubic-bezier(.22,1,.36,1)}
-.nav-cta svg{transition:transform .4s cubic-bezier(.22,1,.36,1)}
-@media(hover:hover){.nav-cta:hover{background:#d4891a}.nav-cta:hover svg{transform:translateX(4px)}}
+.nav-inner{position:relative;display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 28px;height:52px}
+.nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;line-height:0}
+.nav-logo:hover{opacity:.85}
+.nav-links{display:flex;align-items:center;gap:0;list-style:none;margin:0;padding:0;position:absolute;left:50%;transform:translateX(-50%);z-index:10}
+.nav-links li a{display:block;font-size:13px;font-weight:400;color:rgba(255,255,255,.55);padding:0 14px;line-height:52px;text-decoration:none;letter-spacing:-.005em;white-space:nowrap;transition:color .15s}
+.nav-links li a:hover{color:rgba(255,255,255,.92)}
+.nav-cta{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 26px;border:none;border-radius:980px;text-decoration:none;background:#f5a623;color:#000;font-size:16px;font-weight:600;letter-spacing:-.005em;white-space:nowrap;transition:background .15s,transform .15s;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+@media(hover:hover){.nav-cta:hover{background:#d4891a;transform:scale(1.02)}}
+@media(max-width:860px){.nav-links{display:none}}
+@media(max-width:389px){.nav-cta{font-size:14px;padding:0 16px;height:34px}}
 .hero-ctas .btn-wrap{position:relative;display:inline-flex}
 .jackpot-sticker{position:absolute;right:calc(100% + 20px);top:50%;transform:translateY(-50%);width:134px;height:134px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:linear-gradient(160deg,rgba(11,107,192,.58),rgba(6,74,140,.70));text-align:center;clip-path:polygon(50.00% 0.00%, 57.47% 7.65%, 67.10% 3.02%, 71.50% 12.76%, 82.14% 11.70%, 82.94% 22.36%, 93.30% 25.00%, 90.41% 35.29%, 99.24% 41.32%, 93.00% 50.00%, 99.24% 58.68%, 90.41% 64.71%, 93.30% 75.00%, 82.94% 77.64%, 82.14% 88.30%, 71.50% 87.24%, 67.10% 96.98%, 57.47% 92.35%, 50.00% 100.00%, 42.53% 92.35%, 32.90% 96.98%, 28.50% 87.24%, 17.86% 88.30%, 17.06% 77.64%, 6.70% 75.00%, 9.59% 64.71%, 0.76% 58.68%, 7.00% 50.00%, 0.76% 41.32%, 9.59% 35.29%, 6.70% 25.00%, 17.06% 22.36%, 17.86% 11.70%, 28.50% 12.76%, 32.90% 3.02%, 42.53% 7.65%);-webkit-mask-image:linear-gradient(45deg,#000 46%,transparent 54%);mask-image:linear-gradient(45deg,#000 46%,transparent 54%);-webkit-mask-size:300% 300%;mask-size:300% 300%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;animation:njpReveal 8.4s linear infinite}
 .jackpot-sticker strong{font-size:25px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.02em}
@@ -213,16 +217,16 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.08)}
   .tm-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
-  .nav-cta{display:none}
   .hero{padding:120px 0 60px}
   .btn{width:100%;justify-content:center;font-size:15px;padding:16px 24px;max-width:100%}
-  .btn-wrap{width:100%;max-width:100%}
-  .hero-ctas{width:100%}
-  .hero-ctas .btn{width:100%}
   h1{font-size:clamp(30px,7vw,42px)}
-  .hero-ctas{flex-direction:column;align-items:center}
-  .hero-ctas .btn-wrap{display:flex;flex-direction:column;align-items:center}
-  .jackpot-sticker{position:static;transform:none;right:auto;top:auto;margin:0 0 16px}
+  /* hero CTA stack on mobile: button -> caption -> sticker */
+  .hero-text{display:flex;flex-direction:column;align-items:center}
+  .hero-text h1,.hero-sub{width:100%}
+  .hero-ctas,.hero-ctas .btn-wrap{display:contents}
+  .hero-ctas .btn{width:100%;order:1}
+  .hero-fine{order:2;margin-top:14px}
+  .jackpot-sticker{position:static;transform:none;right:auto;top:auto;order:3;margin:18px 0 0}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
   .sp-grid{grid-template-columns:1fr}
   .reviews-grid{grid-template-columns:1fr 1fr}
@@ -289,7 +293,8 @@ body.bar-hidden #navbar{top:0 !important}
 
 /* LEFT — 3D fade carousel */
 .winners-stage{flex:0 0 540px;display:flex;flex-direction:column;align-items:center;transform:translateX(-44px)}
-.wsp-slider{position:relative;width:100%;max-width:540px;height:540px;margin:0 auto;perspective:1200px}
+.wsp-slider{position:relative;width:100%;max-width:540px;height:540px;margin:0 auto;perspective:1200px;cursor:grab;-webkit-user-select:none;user-select:none}
+.wsp-slider.wsp-grabbing{cursor:grabbing}
 .wsp-slide{position:absolute;top:50%;left:50%;width:360px;height:540px;margin:-270px 0 0 -180px;opacity:0;pointer-events:none;z-index:1;transform:scale(.7);transition:transform .6s cubic-bezier(.4,0,.2,1),opacity .48s ease;will-change:transform,opacity}
 .wsp-slide.wsp-active{opacity:1;pointer-events:auto;transform:translateX(0) scale(1);z-index:3}
 .wsp-slide.wsp-prev{opacity:.5;transform:translateX(-122px) scale(.8);z-index:2}
@@ -298,6 +303,9 @@ body.bar-hidden #navbar{top:0 !important}
 /* Card: full-bleed photo + frosted bottom overlay */
 .wsp-card{position:relative;width:360px;height:540px;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);background:#1d1d1f}
 .wsp-photo{position:absolute;inset:0;z-index:1}
+/* photo scales to the card WIDTH and shows in FULL (height follows the image's own ratio).
+   So a square OR a portrait source sits 1:1 with the card width — never zoomed, never cropped.
+   The frosted info panel overlaps the lower edge, hiding any letterbox area below a square photo. */
 .wsp-photo img{width:100%;height:auto;display:block}
 .wsp-bottom{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.72);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);padding:18px 22px 20px;z-index:2}
 
@@ -338,6 +346,12 @@ body.bar-hidden #navbar{top:0 !important}
   .wsp-slide.wsp-next{transform:translateX(96px) scale(.8)}
   .wsp-card{width:300px;height:450px}
   .wsp-amount{font-size:26px}
+  /* keep info panel a proportional ~39% of the card (match desktop) */
+  .wsp-bottom{padding:14px 18px 15px}
+  .wsp-pill{margin-bottom:9px;padding:7px 11px}
+  .wsp-divider{margin:9px 0}
+  .wsp-subline{margin-top:4px}
+  .wsp-meta{margin-top:3px}
 }
 @media(max-width:420px){
   .wsp-slider{height:430px}
@@ -345,6 +359,14 @@ body.bar-hidden #navbar{top:0 !important}
   .wsp-slide.wsp-prev{transform:translateX(-76px) scale(.78)}
   .wsp-slide.wsp-next{transform:translateX(76px) scale(.78)}
   .wsp-card{width:264px;height:396px}
+  /* shrink info panel further so portrait keeps the same ~61% share as desktop */
+  .wsp-bottom{padding:11px 16px 12px}
+  .wsp-pill{margin-bottom:7px;padding:6px 10px;font-size:10px}
+  .wsp-amount{font-size:23px}
+  .wsp-divider{margin:7px 0}
+  .wsp-subline{font-size:11.5px;margin-top:3px}
+  .wsp-name{font-size:14px}
+  .wsp-meta{font-size:11.5px;margin-top:2px}
 }
 
 /* === STREAK TRACKER === */
@@ -446,7 +468,8 @@ body.bar-hidden #navbar{top:0 !important}
 .featured-head h2{color:#fff}
 .featured-head h2 em{color:#f5a623;font-style:normal}
 .ft-slider{position:relative;max-width:920px;margin:0 auto;z-index:1}
-.ft-viewport{overflow:hidden;border-radius:26px}
+.ft-viewport{overflow:hidden;border-radius:26px;cursor:grab;-webkit-user-select:none;user-select:none}
+.ft-viewport.is-dragging{cursor:grabbing}
 .ft-track{display:flex;transition:transform .55s cubic-bezier(.22,1,.36,1)}
 .ft-slide{flex:0 0 100%;min-width:100%;display:flex}
 .ft-card{position:relative;display:flex;width:100%;min-height:400px;background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.012));border:1px solid rgba(245,166,35,.18);border-radius:26px;overflow:hidden}
@@ -465,16 +488,10 @@ body.bar-hidden #navbar{top:0 !important}
 .ft-author{margin:0}
 .ft-name{color:#fff;font-size:16px;font-weight:700;margin-bottom:3px;letter-spacing:-.01em;line-height:1.2}
 .ft-meta{color:rgba(255,255,255,.5);font-size:13px;font-weight:500;line-height:1.3}
-.ft-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid rgba(245,166,35,.3);background:rgba(10,10,10,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#f5a623;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,border-color .25s;-webkit-tap-highlight-color:transparent}
-.ft-arrow:hover{background:rgba(245,166,35,.16);border-color:rgba(245,166,35,.55)}
-.ft-arrow svg{width:18px;height:18px}
-.ft-prev{left:-22px}
-.ft-next{right:-22px}
 .ft-dots{display:flex;justify-content:center;gap:10px;margin-top:30px}
 .ft-dot{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.22);cursor:pointer;transition:background .25s,transform .25s}
 .ft-dot:hover{background:rgba(255,255,255,.4)}
 .ft-dot.is-active{background:#f5a623;transform:scale(1.3)}
-@media(max-width:820px){.ft-prev{left:8px}.ft-next{right:8px}}
 @media(max-width:700px){
   .ft-card{flex-direction:column;min-height:0}
   .ft-card-media{flex:0 0 auto;height:280px;margin:14px 14px 0;order:-1}
@@ -482,7 +499,6 @@ body.bar-hidden #navbar{top:0 !important}
   .ft-card-body{padding:26px 26px 30px}
   .ft-quote{font-size:16px;margin-bottom:16px}
   .ft-card-bottom{padding-top:24px;max-width:none}
-  .ft-arrow{width:38px;height:38px}
 }
 @media(max-width:600px){.featured-wins{padding:80px 0}}
 
@@ -558,8 +574,6 @@ body.bar-hidden #navbar{top:0 !important}
 .cta-note:has(svg),.footer-cta-note:has(svg),.hero-fine:has(svg),.fine-print:has(svg),.hero-note:has(svg),.lp-cta-note:has(svg){font-size:11px!important;white-space:nowrap!important;letter-spacing:0!important;line-height:1.4!important;text-align:center!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;flex-wrap:nowrap!important;width:auto!important;max-width:100%!important;overflow:visible!important}
 .cta-note:has(svg) svg,.footer-cta-note:has(svg) svg,.hero-fine:has(svg) svg,.fine-print:has(svg) svg,.hero-note:has(svg) svg,.lp-cta-note:has(svg) svg{flex-shrink:0!important;width:13px!important;height:13px!important}
 }
-@media(max-width:480px){.cta-note:has(svg),.footer-cta-note:has(svg),.hero-fine:has(svg),.fine-print:has(svg),.hero-note:has(svg),.lp-cta-note:has(svg){font-size:10px!important}}
-@media(max-width:380px){.cta-note:has(svg),.footer-cta-note:has(svg),.hero-fine:has(svg),.fine-print:has(svg),.hero-note:has(svg),.lp-cta-note:has(svg){font-size:9px!important}}
 .winners + .how{padding-top:50px}.winners:has(+ .how){padding-bottom:50px}</style>
 <style>.hero-badge{text-transform:uppercase!important;letter-spacing:.06em!important}</style></head>
 <body>
@@ -585,7 +599,12 @@ body.bar-hidden #navbar{top:0 !important}
 <circle cx="43.6432" cy="37.7262" r="7.60902" fill="#FFB200"/>
 </svg>
     </a>
-    <a href="https://sellvia.com/checkout/?product=custom&type_custom=free_basic_hosting" class="nav-cta">Start Your Free Store <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    <ul class="nav-links">
+      <li><a href="#winners">Winners</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="https://sellvia.com/checkout/?product=custom&type_custom=free_basic_hosting" class="nav-cta">Start for free</a>
   </div>
 </nav>
 
@@ -712,7 +731,7 @@ body.bar-hidden #navbar{top:0 !important}
 </section>
 
 <!-- RECENT WINNERS — payout slider -->
-<section class="winners">
+<section class="winners" id="winners">
   <div class="container">
     <div class="winners-grid">
 
@@ -835,6 +854,10 @@ body.bar-hidden #navbar{top:0 !important}
   slider.addEventListener('touchmove', function(e){ if (!sw || !e.touches[0]) return; sdx = e.touches[0].clientX - sx; }, {passive:true});
   slider.addEventListener('touchend', function(){ if (!sw) return; sw = false; if (Math.abs(sdx) > 40){ activate(sdx < 0 ? (idx + 1) % N : (idx - 1 + N) % N); } start(); });
 
+  slider.addEventListener('mousedown', function(e){ if (e.button !== 0) return; sx = e.clientX; sdx = 0; sw = true; stop(); slider.classList.add('wsp-grabbing'); e.preventDefault(); });
+  window.addEventListener('mousemove', function(e){ if (!sw) return; sdx = e.clientX - sx; });
+  window.addEventListener('mouseup', function(){ if (!sw) return; sw = false; slider.classList.remove('wsp-grabbing'); if (Math.abs(sdx) > 40){ activate(sdx < 0 ? (idx + 1) % N : (idx - 1 + N) % N); } start(); });
+
   if ('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if (e.isIntersecting) start(); else stop(); });
@@ -941,8 +964,6 @@ body.bar-hidden #navbar{top:0 !important}
 
         </div>
       </div>
-      <button class="ft-arrow ft-prev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-      <button class="ft-arrow ft-next" aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
       <div class="ft-dots">
         <button class="ft-dot is-active" aria-label="Show testimonial 1"></button>
         <button class="ft-dot" aria-label="Show testimonial 2"></button>
@@ -983,7 +1004,7 @@ body.bar-hidden #navbar{top:0 !important}
 </section>
 
 <!-- FAQ -->
-<section class="faq">
+<section class="faq" id="faq">
   <div class="container">
     <div class="faq-header">
       <p class="overline">Questions</p>
@@ -1034,40 +1055,103 @@ body.bar-hidden #navbar{top:0 !important}
   },4000);
 })();
 
-// ===== FEATURED WINS — testimonial slider =====
+// ===== FEATURED WINS — testimonial slider (seamless infinite loop) =====
 (function(){
   var slider=document.querySelector('.ft-slider');
   if(!slider)return;
   var track=slider.querySelector('.ft-track');
-  var slides=slider.querySelectorAll('.ft-slide');
+  var realSlides=[].slice.call(slider.querySelectorAll('.ft-slide'));
   var dots=slider.querySelectorAll('.ft-dot');
-  var prev=slider.querySelector('.ft-prev');
-  var next=slider.querySelector('.ft-next');
-  var n=slides.length, i=0, timer=null;
-  function render(){
-    track.style.transform='translateX('+(-i*100)+'%)';
-    for(var j=0;j<dots.length;j++) dots[j].classList.toggle('is-active',j===i);
-    for(var s=0;s<slides.length;s++){ var b=slides[s].querySelector('.ft-win-badge'); if(b) b.classList.remove('ft-shine'); }
-    var ab=slides[i].querySelector('.ft-win-badge');
+  var vp=slider.querySelector('.ft-viewport');
+  var n=realSlides.length;
+  if(!track||!n)return;
+  var TRANS='transform .55s cubic-bezier(.22,1,.36,1)';
+  var timer=null, animating=false, settleTimer=null;
+
+  // Clone first & last so wrapping advances one card in the same direction.
+  // Track order becomes: [lastClone][real0..realN-1][firstClone]
+  if(n>1){
+    var firstClone=realSlides[0].cloneNode(true);
+    var lastClone=realSlides[n-1].cloneNode(true);
+    firstClone.setAttribute('data-ftclone','1');
+    lastClone.setAttribute('data-ftclone','1');
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, realSlides[0]);
+  }
+  var pos=(n>1)?1:0;                                   // index within the (cloned) track
+  function realIndex(){ return n>1 ? (((pos-1)%n)+n)%n : 0; }
+
+  function setPos(animate){
+    track.style.transition = animate ? TRANS : 'none';
+    void track.offsetWidth;                            // commit transition value before moving
+    track.style.transform = 'translateX('+(-pos*100)+'%)';
+  }
+  function syncDots(){
+    var ri=realIndex();
+    for(var j=0;j<dots.length;j++) dots[j].classList.toggle('is-active', j===ri);
+  }
+  function shine(){
+    var ri=realIndex();
+    for(var s=0;s<realSlides.length;s++){ var b=realSlides[s].querySelector('.ft-win-badge'); if(b) b.classList.remove('ft-shine'); }
+    var ab=realSlides[ri].querySelector('.ft-win-badge');
     if(ab){ void ab.offsetWidth; ab.classList.add('ft-shine'); }
   }
-  function go(k){ i=(k%n+n)%n; render(); }
-  function start(){ stop(); if(n>1) timer=setInterval(function(){go(i+1);},7000); }
+  function settle(){
+    if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}
+    animating=false;
+    if(n<2)return;
+    if(pos>n){ pos=1; setPos(false); }                // past firstClone -> real first
+    else if(pos<1){ pos=n; setPos(false); }           // before lastClone -> real last
+    shine();
+  }
+  track.addEventListener('transitionend',function(e){
+    if(e.target!==track||e.propertyName!=='transform')return;
+    settle();
+  });
+
+  function move(dir){
+    if(n<2||animating)return;
+    animating=true; pos+=dir; setPos(true); syncDots();
+    settleTimer=setTimeout(settle,650);               // fallback if transitionend never fires
+  }
+  function go(k){
+    if(n<2||animating||k===realIndex())return;
+    animating=true; pos=k+1; setPos(true); syncDots();
+    settleTimer=setTimeout(settle,650);
+  }
+  function start(){ stop(); if(n>1) timer=setInterval(function(){ move(1); },7000); }
   function stop(){ if(timer){clearInterval(timer);timer=null;} }
-  if(prev) prev.addEventListener('click',function(){go(i-1);start();});
-  if(next) next.addEventListener('click',function(){go(i+1);start();});
-  for(var j=0;j<dots.length;j++){ (function(k){dots[k].addEventListener('click',function(){go(k);start();});})(j); }
+
+  for(var d=0;d<dots.length;d++){ (function(k){ dots[k].addEventListener('click',function(){ go(k); start(); }); })(d); }
   slider.addEventListener('mouseenter',stop);
   slider.addEventListener('mouseleave',start);
+
+  // touch swipe
   var x0=null;
-  slider.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;stop();},{passive:true});
+  slider.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; stop(); },{passive:true});
   slider.addEventListener('touchend',function(e){
     if(x0===null)return;
     var dx=e.changedTouches[0].clientX-x0;
-    if(Math.abs(dx)>40) go(dx<0?i+1:i-1);
+    if(Math.abs(dx)>40) move(dx<0?1:-1);
     x0=null; start();
   },{passive:true});
-  render(); start();
+
+  // mouse drag (desktop)
+  var mx=null;
+  (vp||slider).addEventListener('mousedown',function(e){
+    if(e.button!==0)return;
+    mx=e.clientX; stop();
+    if(vp) vp.classList.add('is-dragging');
+    e.preventDefault();
+  });
+  window.addEventListener('mouseup',function(e){
+    if(mx===null)return;
+    var dx=e.clientX-mx;
+    if(Math.abs(dx)>40) move(dx<0?1:-1);
+    mx=null; if(vp) vp.classList.remove('is-dragging'); start();
+  });
+
+  setPos(false); syncDots(); shine(); start();
 })();
 
 
