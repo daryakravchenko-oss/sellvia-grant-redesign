@@ -61,7 +61,7 @@ h4{font-family:var(--font);font-size:16px;font-weight:700;margin-bottom:6px}
 .dark .fine-print{color:rgba(255,255,255,.35)}
 
 /* === BUTTONS === */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 28px;height:60px;border-radius:980px;background:#f5a623;color:#000;font-size:19px;font-weight:600;border:none;transition:all .2s cubic-bezier(.22,1,.36,1);box-shadow:none;position:relative;overflow:hidden;white-space:nowrap;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 28px;height:60px;border-radius:980px;background:#f5a623;color:#000;font-size:19px;font-weight:500;border:none;transition:all .2s cubic-bezier(.22,1,.36,1);box-shadow:none;position:relative;overflow:hidden;white-space:nowrap;letter-spacing:-.01em}
 .btn svg,.btn-nav svg{vertical-align:middle;margin-left:4px;transition:transform .2s}
 .btn:hover svg,.btn-nav:hover svg{transform:translateX(3px)}
 .btn:hover{background:#d4891a;transform:scale(1.02);box-shadow:0 8px 28px rgba(var(--teal-rgb),.3)}
@@ -80,16 +80,16 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.4);background:rgba(17,17,20,.95)}
 .nav-links{display:flex;align-items:center;gap:0;list-style:none;margin:0;padding:0;position:absolute;left:50%;transform:translateX(-50%);z-index:10}
 .nav-links li a{display:block;font-size:13px;font-weight:400;color:rgba(255,255,255,.55);padding:0 14px;line-height:52px;text-decoration:none;letter-spacing:-.005em;white-space:nowrap;transition:color .15s}
 .nav-links li a:hover{color:rgba(255,255,255,.92)}
-.nav-cta{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 26px;border:none;border-radius:980px;text-decoration:none;background:#f5a623;color:#000;font-size:16px;font-weight:600;letter-spacing:-.005em;white-space:nowrap;transition:background .15s,transform .15s;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.nav-cta{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 26px;border:none;border-radius:980px;text-decoration:none;background:#f5a623;color:#000;font-size:16px;font-weight:500;letter-spacing:-.005em;white-space:nowrap;transition:background .15s,transform .15s;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 @media(hover:hover){.nav-cta:hover{background:#d4891a;transform:scale(1.02)}}
 @media(max-width:860px){.nav-links{display:none}}
 @media(max-width:389px){.nav-cta{font-size:14px;padding:0 16px;height:34px}}
 .hero-ctas .btn-wrap{position:relative;display:inline-flex}
-.jackpot-sticker{position:absolute;right:calc(100% + 20px);top:50%;transform:translateY(-50%);width:134px;height:134px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:linear-gradient(160deg,rgba(11,107,192,.58),rgba(6,74,140,.70));text-align:center;clip-path:polygon(50.00% 0.00%, 57.47% 7.65%, 67.10% 3.02%, 71.50% 12.76%, 82.14% 11.70%, 82.94% 22.36%, 93.30% 25.00%, 90.41% 35.29%, 99.24% 41.32%, 93.00% 50.00%, 99.24% 58.68%, 90.41% 64.71%, 93.30% 75.00%, 82.94% 77.64%, 82.14% 88.30%, 71.50% 87.24%, 67.10% 96.98%, 57.47% 92.35%, 50.00% 100.00%, 42.53% 92.35%, 32.90% 96.98%, 28.50% 87.24%, 17.86% 88.30%, 17.06% 77.64%, 6.70% 75.00%, 9.59% 64.71%, 0.76% 58.68%, 7.00% 50.00%, 0.76% 41.32%, 9.59% 35.29%, 6.70% 25.00%, 17.06% 22.36%, 17.86% 11.70%, 28.50% 12.76%, 32.90% 3.02%, 42.53% 7.65%);-webkit-mask-image:linear-gradient(45deg,#000 46%,transparent 54%);mask-image:linear-gradient(45deg,#000 46%,transparent 54%);-webkit-mask-size:300% 300%;mask-size:300% 300%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;animation:njpReveal 8.4s linear infinite}
+.jackpot-sticker{position:absolute;right:calc(100% + 30px);top:50%;transform:translateY(-50%) rotate(-30deg) scale(1.15);width:134px;height:134px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:#095FC5;text-align:center;clip-path:polygon(50.00% 0.00%, 57.47% 7.65%, 67.10% 3.02%, 71.50% 12.76%, 82.14% 11.70%, 82.94% 22.36%, 93.30% 25.00%, 90.41% 35.29%, 99.24% 41.32%, 93.00% 50.00%, 99.24% 58.68%, 90.41% 64.71%, 93.30% 75.00%, 82.94% 77.64%, 82.14% 88.30%, 71.50% 87.24%, 67.10% 96.98%, 57.47% 92.35%, 50.00% 100.00%, 42.53% 92.35%, 32.90% 96.98%, 28.50% 87.24%, 17.86% 88.30%, 17.06% 77.64%, 6.70% 75.00%, 9.59% 64.71%, 0.76% 58.68%, 7.00% 50.00%, 0.76% 41.32%, 9.59% 35.29%, 6.70% 25.00%, 17.06% 22.36%, 17.86% 11.70%, 28.50% 12.76%, 32.90% 3.02%, 42.53% 7.65%);-webkit-mask-image:linear-gradient(45deg,#000 46%,transparent 54%);mask-image:linear-gradient(45deg,#000 46%,transparent 54%);-webkit-mask-size:300% 300%;mask-size:300% 300%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;animation:njpReveal 8.4s linear forwards}
 .jackpot-sticker strong{font-size:25px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.02em}
 .jackpot-sticker .njp-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.85);margin-top:4px;white-space:nowrap}
 .jackpot-sticker::after{content:'';position:absolute;inset:0;background-image:linear-gradient(45deg,transparent 30%,rgba(216,236,255,.95) 42%,transparent 56%);background-size:300% 300%;background-repeat:no-repeat;pointer-events:none;animation:njpShineEdge 8.4s linear infinite}
-@keyframes njpReveal{0%{-webkit-mask-position:100% 0%;mask-position:100% 0%;opacity:1}45.2%{-webkit-mask-position:0% 100%;mask-position:0% 100%;opacity:1}69%{-webkit-mask-position:0% 100%;mask-position:0% 100%;opacity:1}77.4%{-webkit-mask-position:0% 100%;mask-position:0% 100%;opacity:0}100%{-webkit-mask-position:100% 0%;mask-position:100% 0%;opacity:0}}
+@keyframes njpReveal{0%{-webkit-mask-position:100% 0%;mask-position:100% 0%}45.2%{-webkit-mask-position:0% 100%;mask-position:0% 100%}100%{-webkit-mask-position:0% 100%;mask-position:0% 100%}}
 @keyframes njpShineEdge{0%{background-position:100% 0%;opacity:1}45.2%{background-position:0% 100%;opacity:1}47%{opacity:0}100%{background-position:0% 100%;opacity:0}}
 
 /* === HERO === */
@@ -933,22 +933,6 @@ body.bar-hidden #navbar{top:0 !important}
           <div class="ft-slide">
             <div class="ft-card">
               <div class="ft-card-body">
-                <span class="ft-win-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Won 3x <span class="ft-win-badge-amount">$3,000</span></span>
-                <div class="ft-card-bottom">
-                  <p class="ft-quote">Three wins in two weeks, $3,000 back into my store. Unlocked more AI toolkits with it &ndash; now they&rsquo;re bringing in profit on top. First platform that actually grows my margin.</p>
-                  <div class="ft-author">
-                    <div class="ft-name">Denise M.</div>
-                    <div class="ft-meta">Illinois &#127482;&#127480; &middot; Won 3 daily draws</div>
-                  </div>
-                </div>
-              </div>
-              <div class="ft-card-media"><img src="images/portrait-2.webp" alt="Denise M., 3-time daily draw winner" loading="lazy"></div>
-            </div>
-          </div>
-
-          <div class="ft-slide">
-            <div class="ft-card">
-              <div class="ft-card-body">
                 <span class="ft-win-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Won 2x <span class="ft-win-badge-amount">$2,000</span></span>
                 <div class="ft-card-bottom">
                   <p class="ft-quote">I almost didn&rsquo;t believe the first $1,000 hit my account. I processed my orders, entered the draw, and won twice in a month. At my age, that kind of extra income changes how I sleep at night.</p>
@@ -959,6 +943,22 @@ body.bar-hidden #navbar{top:0 !important}
                 </div>
               </div>
               <div class="ft-card-media"><img src="images/portrait-3.webp" alt="Ray K., 2-time daily draw winner" loading="lazy"></div>
+            </div>
+          </div>
+
+          <div class="ft-slide">
+            <div class="ft-card">
+              <div class="ft-card-body">
+                <span class="ft-win-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Won 3x <span class="ft-win-badge-amount">$3,000</span></span>
+                <div class="ft-card-bottom">
+                  <p class="ft-quote">Three wins in two weeks, $3,000 back into my store. Unlocked more AI toolkits with it &ndash; now they&rsquo;re bringing in profit on top. First platform that actually grows my margin.</p>
+                  <div class="ft-author">
+                    <div class="ft-name">Denise M.</div>
+                    <div class="ft-meta">Illinois &#127482;&#127480; &middot; Won 3 daily draws</div>
+                  </div>
+                </div>
+              </div>
+              <div class="ft-card-media"><img src="images/portrait-2.webp" alt="Denise M., 3-time daily draw winner" loading="lazy"></div>
             </div>
           </div>
 
